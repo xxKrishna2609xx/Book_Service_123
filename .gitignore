@@ -123,11 +123,4 @@ venv.bak/
 *.sln
 *.sw?
 
-# SQLite Databases & Logs
-*.db
-*.sqlite
-database/*.db
-database/*.sqlite
-database/users.db
-database/bookverse.db
-database/*.db-journal
+
