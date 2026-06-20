@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Book</title>
+
+    <style>
+        body{
+            background:
+                radial-gradient(900px 500px at -8% -10%, rgba(95,179,255,0.22), transparent 56%),
+                radial-gradient(700px 480px at 108% 10%, rgba(115,233,204,0.16), transparent 54%),
+                linear-gradient(135deg, #041025, #071a35 58%, #0e2441);
+            font-family:Arial;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            color:white;
+            margin:0;
+            position:relative;
+            overflow:hidden;
+        }
+
+        body::before,
+        body::after{
+            content:"";
+            position:fixed;
+            pointer-events:none;
+            z-index:-1;
+        }
+
+        body::before{
+            width:400px;
+            height:400px;
+            border-radius:50%;
+            left:-130px;
+            top:200px;
+            background:radial-gradient(circle at center, rgba(121,209,255,0.2), rgba(121,209,255,0));
+        }
+
+        body::after{
+            inset:0;
+            background-image:linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size:56px 56px;
+        }
+
+        .box{
+            background:linear-gradient(160deg, rgba(19,39,65,0.84), rgba(11,26,46,0.88));
+            padding:40px;
+            border-radius:20px;
+            width:400px;
+            text-align:center;
+            border:1px solid rgba(148,195,255,0.24);
+            box-shadow:0 22px 48px rgba(5,14,28,0.45);
+        }
+
+        h1{
+            color:#4da3ff;
+        }
+
+        input, select{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:none;
+            border-radius:10px;
+        }
+
+        button{
+            background:#28a745;
+            color:white;
+            border:none;
+            padding:14px;
+            width:100%;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#218838;
+        }
+
+        .price{
+            color:#28a745;
+            font-size:30px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>{{ book_name }}</h1>
+
+    <p>{{ book_description }}</p>
+
+    <div class="price">{{ book_price }}</div>
+
+    <form action="/success" method="POST">
+
+        <input type="hidden"
+         name="book_slug"
+         value="{{ book_slug }}">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter Full Name"
+               required>
+
+        <input type="email"
+               name="email "
+               placeholder="Enter Email"
+               required>
+
+        <input type="text"
+               name="phone"
+               placeholder="Phone Number"
+               required>
+
+        <input type="text"
+               name="address"
+               placeholder="Address"
+               required>
+
+        <select name="payment_method" required>
+            <option value="">
+                Select Payment Method
+            </option>
+            <option>UPI</option>
+            <option>Debit Card</option>
+            <option>Credit Card</option>
+            <option>Cash on Delivery</option>
+        </select>
+
+        <button type="submit">
+            Pay {{ book_price }}
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard"
+       style="color:#4da3ff;">
+       ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

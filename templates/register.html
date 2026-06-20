@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Register - BookVerse</title>
+
+    <style>
+        body{
+            background:
+                radial-gradient(900px 500px at -8% -10%, rgba(95,179,255,0.22), transparent 56%),
+                radial-gradient(700px 480px at 108% 10%, rgba(115,233,204,0.16), transparent 54%),
+                linear-gradient(135deg, #041025, #071a35 58%, #0e2441);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            font-family:Arial;
+            color:white;
+            margin:0;
+            position:relative;
+            overflow:hidden;
+        }
+
+        body::before,
+        body::after{
+            content:"";
+            position:fixed;
+            pointer-events:none;
+            z-index:-1;
+        }
+
+        body::before{
+            width:360px;
+            height:360px;
+            border-radius:50%;
+            left:-120px;
+            top:200px;
+            background:radial-gradient(circle at center, rgba(121,209,255,0.2), rgba(121,209,255,0));
+        }
+
+        body::after{
+            inset:0;
+            background-image:linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+            background-size:56px 56px;
+        }
+
+        .register-box{
+            background:linear-gradient(160deg, rgba(17,37,61,0.84), rgba(11,26,44,0.88));
+            padding:40px;
+            border-radius:15px;
+            width:350px;
+            text-align:center;
+            border:1px solid rgba(149,197,255,0.22);
+            box-shadow:0 20px 46px rgba(4,12,24,0.45);
+        }
+
+        h1{
+            margin-bottom:25px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:none;
+            border-radius:8px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#28a745;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        a{
+            color:#4da3ff;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-box">
+    <h1>Create Account</h1>
+
+    <form method="POST">
+
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email" required>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <br>
+
+    <a href="/login">Already have account? Login</a>
+</div>
+
+</body>
+</html>
+

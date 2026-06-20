@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+
+    <style>
+        body{
+            background:#02152b;
+            font-family:Arial;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+            color:white;
+        }
+
+        .box{
+            background:#0b1f3a;
+            padding:40px;
+            border-radius:20px;
+            width:500px;
+            text-align:center;
+            box-shadow:0 0 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:#28a745;
+        }
+
+        p{
+            font-size:18px;
+            margin:12px 0;
+        }
+
+        strong{
+            color:#4da3ff;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:14px 25px;
+            background:#28a745;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            font-size:18px;
+        }
+
+        .btn:hover{
+            background:#218838;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🎉 Payment Successful</h1>
+
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone:</strong> {{ phone }}</p>
+    <p><strong>Address:</strong> {{ address }}</p>
+    <p><strong>Book:</strong> {{ book_name }}</p>
+    <p><strong>Payment:</strong> {{ payment_method }}</p>
+
+    <a href="/dashboard" class="btn">
+        Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

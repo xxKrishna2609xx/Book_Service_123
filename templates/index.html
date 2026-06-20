@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookVerse</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="home">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">📚 BookVerse</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="buttons">
+            <a href="/login">
+    <button class="login-btn">Login</button>
+</a>
+
+<a href="/register">
+    <button class="register-btn">Register</button>
+</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Discover Your Next Favorite Book</h1>
+
+        <p>
+            Explore books on Cyber Security,
+            Programming, Networking, AI, and Technology.
+        </p>
+
+        <a href="#books"><button class="explore-btn">Explore Books</button></a>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="books-section" id="books">
+
+    <h2>Featured Books</h2>
+
+    <div class="book-container">
+
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500" alt="Book">
+
+            <h3>Ethical Hacking</h3>
+
+            <p>Cyber Security Guide</p>
+
+            <span>₹499</span>
+
+            {% if user %}
+            <a href="/purchase/ethical-hacking"><button>Buy Now</button></a>
+            {% else %}
+            <a href="/login"><button>Login to Buy</button></a>
+            {% endif %}
+        </div>
+
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500" alt="Book">
+
+            <h3>Python Programming</h3>
+
+            <p>Beginner to Advanced</p>
+
+            <span>₹699</span>
+
+            {% if user %}
+            <a href="/purchase/python-programming"><button>Buy Now</button></a>
+            {% else %}
+            <a href="/login"><button>Login to Buy</button></a>
+            {% endif %}
+        </div>
+
+        <div class="book-card">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500" alt="Book">
+
+            <h3>Networking</h3>
+
+            <p>Network Fundamentals</p>
+
+            <span>₹599</span>
+
+            {% if user %}
+            <a href="/purchase/networking"><button>Buy Now</button></a>
+            {% else %}
+            <a href="/login"><button>Login to Buy</button></a>
+            {% endif %}
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- Categories -->
+    <section class="categories-section" id="categories">
+        <h2>Book Categories</h2>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                Cyber Security
+            </div>
+
+            <div class="category-card">
+                Programming
+            </div>
+
+            <div class="category-card">
+                Networking
+            </div>
+
+            <div class="category-card">
+                Artificial Intelligence
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="section-shell">
+            <h2>About BookVerse</h2>
+            <p>
+                BookVerse is a learning-focused bookstore experience built for tech readers.
+                From cyber security to Python and networking, we curate books that help students
+                and professionals grow faster.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="section-shell">
+            <h2>Contact Us</h2>
+            <p>Need help with purchase or account? Reach out anytime.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:support@bookverse.com">support@bookverse.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <a href="tel:+919999999999">+91 99999 99999</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 BookVerse | Built for Cyber Security Project
+        </p>
+    </footer>
+
+</body>
+</html>

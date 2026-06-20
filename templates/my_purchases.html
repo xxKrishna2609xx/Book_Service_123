@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Purchases</title>
+
+    <style>
+        body{
+            background:
+                radial-gradient(1100px 540px at -10% -10%, rgba(98,182,255,0.24), transparent 56%),
+                radial-gradient(760px 520px at 108% 14%, rgba(114,235,205,0.16), transparent 55%),
+                linear-gradient(140deg, #041025, #071a35 58%, #0f2543);
+            color:white;
+            font-family:Arial;
+            padding:40px;
+            min-height:100vh;
+            position:relative;
+            overflow-x:hidden;
+        }
+
+        body::before,
+        body::after{
+            content:"";
+            position:fixed;
+            pointer-events:none;
+            z-index:-1;
+        }
+
+        body::before{
+            width:380px;
+            height:380px;
+            border-radius:50%;
+            right:-120px;
+            top:150px;
+            background:radial-gradient(circle at center, rgba(122,210,255,0.22), rgba(122,210,255,0));
+        }
+
+        body::after{
+            inset:0;
+            background-image:linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+            background-size:54px 54px;
+            mask-image:linear-gradient(180deg, rgba(0,0,0,0.58), transparent 90%);
+        }
+
+        h1{
+            text-align:center;
+            color:#4da3ff;
+        }
+
+        .card{
+            background:linear-gradient(160deg, rgba(19,39,65,0.84), rgba(11,26,46,0.88));
+            margin:20px auto;
+            padding:20px;
+            width:400px;
+            border-radius:15px;
+            border:1px solid rgba(148,195,255,0.24);
+            box-shadow:0 18px 38px rgba(5,14,28,0.44);
+        }
+
+        a{
+            color:#4da3ff;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📚 My Purchases</h1>
+
+{% if purchases|length == 0 %}
+<div class="card">
+    <p>No purchases yet.</p>
+</div>
+{% endif %}
+
+{% for item in purchases %}
+<div class="card">
+
+    <h2>{{ item['book_name'] }}</h2>
+
+    <p>
+        Payment Method:
+        {{ item['payment_method'] }}
+    </p>
+
+</div>
+{% endfor %}
+
+<center>
+    <a href="/dashboard">
+        ← Back to Dashboard
+    </a>
+</center>
+
+</body>
+</html>
