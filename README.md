@@ -171,6 +171,41 @@ If you deploy to a Virtual Private Server (DigitalOcean, AWS EC2, Linode):
 3. Configure `gunicorn` to run as a system service daemon (systemd).
 4. Configure **Nginx** as a reverse proxy, mapping port `80` (HTTP) or `443` (HTTPS) to Gunicorn's default port (`8000`).
 
+### 📐 Option C: Deploying on Vercel (Serverless)
+Vercel supports Python Flask applications by compiling them into Serverless Functions. 
+
+1. Install the Vercel CLI (if not already installed):
+   ```bash
+   npm install -g vercel
+   ```
+2. Log in to your Vercel account:
+   ```bash
+   vercel login
+   ```
+3. Run the deployment command from the root directory of your project:
+   ```bash
+   vercel
+   ```
+4. Follow the interactive prompts to link it to a new project:
+   * **Set up and deploy?** `yes`
+   * **Which scope?** (Select your workspace/personal team)
+   * **Link to existing project?** `no`
+   * **What's your project's name?** `bookverse-store`
+   * **In which directory is your code located?** `./`
+   * **Want to modify the settings?** `no`
+5. Vercel will automatically read `vercel.json` and deploy your Flask app as a serverless backend. To deploy to production, run:
+   ```bash
+   vercel --prod
+   ```
+
+> [!CAUTION]
+> **Critical SQLite Limitation on Vercel:**
+> Vercel's serverless environment runs on **read-only ephemeral micro-VMs**. 
+> 
+> * **The Problem**: You cannot write to files at runtime. SQLite operations that modify data (like Registering, Checkouts, and Password changes) will throw `sqlite3.OperationalError: attempt to write a readonly database` or will immediately reset on the next page refresh.
+> * **The Solution**: If you deploy on Vercel, you **must migrate the database from SQLite to a hosted cloud database** (such as a free-tier PostgreSQL database on Neon, Supabase, or Aiven). You can configure your Python database driver (like `psycopg2` or `SQLAlchemy`) and load your database URI using Vercel Environment Variables.
+
+
 ---
 
 ## 🔒 Security Best Practices
